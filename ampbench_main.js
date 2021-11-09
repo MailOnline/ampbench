@@ -30,7 +30,7 @@ if (module === require.main) {
 
     process.on('uncaughtException', function(err) {
         console.log('METRIC ns=ampbench name=uncaughtException errorMsg=' + err.message + ' errorCode=' + err.code);
-        console.log('uncaught exception ' + err);
+        console.log('uncaught exception ' + err.stack);
     });
 }
 
