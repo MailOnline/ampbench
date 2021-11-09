@@ -27,6 +27,11 @@ if (module === require.main) {
         console.log(routes.version_msg('service started on host [' + host + ':' + port + ']'));
     });
     server.timeout = 20000; // 20 secs
+
+    process.on('uncaughtException', function(err) {
+        console.log('METRIC ns=ampbench name=uncaughtException errorMsg=' + err.message + ' errorCode=' + err.code);
+        console.log('uncaught exception ' + err.stack);
+    });
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
