@@ -28,6 +28,8 @@ if (module === require.main) {
     });
     server.timeout = 20000; // 20 secs
 
+    process.setMaxListeners(20);
+
     process.on('uncaughtException', function(err) {
         console.log('METRIC ns=ampbench name=uncaughtException errorMsg=' + err.message + ' errorCode=' + err.code);
         console.log('uncaught exception ' + err.stack);
